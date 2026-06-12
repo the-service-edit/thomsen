@@ -159,14 +159,19 @@
     .layer{
       position:relative;
       min-height:92svh;
-      padding:7% 7% calc(78px + 6%);
+      padding:6% 5.5% calc(78px + 6%);
     }
 
-    /* Top bar wraps; logo and nav stack neatly */
-    .top{flex-wrap:wrap;gap:1rem 1.4rem;justify-content:space-between}
-    .logo{height:44px}
-    nav{flex-wrap:wrap;gap:.7rem 1.3rem}
-    nav a{font-size:13px}
+    /* Darken the photo more so all text reads cleanly */
+    .scrim-bottom{background:linear-gradient(to top, rgba(8,9,12,.92) 0%, rgba(8,9,12,.6) 30%, rgba(8,9,12,.25) 60%, rgba(8,9,12,.15) 100%)}
+    .scrim-left{background:linear-gradient(to right, rgba(8,9,12,.7) 0%, rgba(8,9,12,.4) 45%, rgba(8,9,12,.2) 100%)}
+    .scrim-top{background:linear-gradient(to bottom, rgba(8,9,12,.5) 0%, rgba(8,9,12,0) 24%)}
+
+    /* Top bar wraps; logo and nav stack neatly, nav fits one line */
+    .top{flex-wrap:wrap;gap:.9rem 1.2rem;justify-content:space-between}
+    .logo{height:42px}
+    nav{flex-wrap:wrap;gap:.6rem 1.1rem;width:100%}
+    nav a{font-size:12.5px;letter-spacing:.03em}
 
     /* Headline + CTA stack vertically */
     .mid{flex-direction:column;align-items:stretch;gap:1.8rem;padding-top:6%}
@@ -174,18 +179,28 @@
     h1{font-size:clamp(34px,8.6vw,54px)}
     .sub{font-size:17px;max-width:34ch}
 
-    /* CTA card spans full width */
-    .cta{width:100%}
+    /* CTA becomes a clean solid panel instead of muddy glass */
+    .cta{
+      width:100%;
+      background:rgba(12,14,20,.78);
+      border-color:rgba(255,255,255,.14);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
     .cta p{font-size:16px}
     .btn{font-size:16px;padding:14px 18px}
 
-    /* Meta row wraps instead of overflowing */
-    .meta{flex-wrap:wrap;white-space:normal;row-gap:.5rem}
-    .meta .dot{margin:0 .7rem}
+    /* Meta row wraps and reads clearly */
+    .meta{
+      flex-wrap:wrap;white-space:normal;row-gap:.55rem;
+      color:rgba(255,255,255,.92);
+      text-shadow:0 1px 12px rgba(0,0,0,.9);
+    }
+    .meta .dot{margin:0 .7rem;background:rgba(255,255,255,.6)}
 
     /* Call pill becomes a full-width bar near the bottom */
     .call{
-      left:7%;right:7%;bottom:6%;
+      left:5.5%;right:5.5%;bottom:6%;
       justify-content:center;
       border-radius:14px;
       padding:14px 18px;
@@ -196,8 +211,8 @@
   @media (max-width:380px){
     .meta .dot{display:none}
     .meta span{flex:0 0 100%}
-    nav{gap:.6rem 1rem}
-    nav a{font-size:12px}
+    nav{gap:.55rem .9rem}
+    nav a{font-size:11.5px}
   }
 </style>
 </head>
